@@ -463,10 +463,10 @@ function renderOverview(){
  const monthly=F.reduce((a,r)=>a+Number(v(r,'valorRecebido','folha')||0),0);
  const receivedAnnual=F.reduce((a,r)=>a+Number(v(r,'valorAnual','folha')||0),0);
  $('kpi-geral').innerHTML=[
-  ['Resultados válidos',fmt(E.length),'Total','☆',E.length,grand,'Participação dos resultados válidos nas quatro bases'],
-  ['Registros de contemplados',fmt(C.length),'Total','✓',C.length,grand,'Participação de Contemplados nas quatro bases'],
-  ['Registros de bolsistas',fmt(B.length),'Total','◈',B.length,grand,'Participação de Bolsistas nas quatro bases'],
-  ['Total pago',moeda(monthly),'Total','＄',monthly,receivedAnnual,'Valor recebido sobre valor anual previsto na folha']
+  ['Resultados válidos',fmt(E.length),'Provas e eventos válidos para concorrer à bolsa','☆',E.length,grand,'Participação dos resultados válidos nas quatro bases'],
+  ['Atletas contemplados',fmt(C.length),'Atletas que atenderam aos critérios do edital','✓',C.length,grand,'Participação de Contemplados nas quatro bases'],
+  ['Atletas bolsistas',fmt(B.length),'Atletas aptos a receber o benefício','◈',B.length,grand,'Participação de Bolsistas nas quatro bases'],
+  ['Valores pagos',moeda(monthly),'Total efetivamente pago aos atletas','＄',monthly,receivedAnnual,'Valor recebido sobre valor anual previsto na folha']
  ].map(x=>kpicard(x[0],x[1],x[2],x[3],percent(x[4],x[5]),x[6])).join('');
  renderOverviewProfiles();renderEvolution({contemplados:C,bolsistas:B,eventos:E,folha:F});$('mapFonte').value=$('overviewBase').value;renderMap();
 }
